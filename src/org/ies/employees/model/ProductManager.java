@@ -12,8 +12,9 @@ public class ProductManager extends Employee{
 
     @Override
     public void showInfo() {
-        System.out.println("NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Proyecto: " + project);
+        System.out.println("PRODUCTMANAGER || NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Proyecto: " + project);
     }
+
 
     public String getProject() {
         return project;

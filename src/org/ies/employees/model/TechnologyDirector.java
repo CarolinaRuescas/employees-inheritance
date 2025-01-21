@@ -8,7 +8,7 @@ public class TechnologyDirector extends Employee{
 
     @Override
     public void showInfo() {
-        System.out.println("NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ".");
+        System.out.println("DIRECTOR DE TECNOLOGÍA || NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ".");
     }
 
     @Override

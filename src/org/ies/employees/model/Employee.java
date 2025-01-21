@@ -16,10 +16,12 @@ public abstract class Employee {
     }
 
     public abstract void showInfo();
+
     public void addHours(int hours){
-        hoursWorked += hours;
-        System.out.println("Ha realizado " + hours + " más");
+        hoursWorked = hours + hoursWorked;
+        System.out.println("Ha realizado " + hoursWorked + " más");
     }
+
 
     public String getNif() {
         return nif;

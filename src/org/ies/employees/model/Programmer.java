@@ -1,33 +1,41 @@
 package org.ies.employees.model;
 
+import java.util.Arrays;
 import java.util.Objects;
 
 public class Programmer extends Employee {
 
-    private String programmingLenguage;
+    private String[] programmingLanguages;
     private String project;
 
-    public Programmer(String nif, String name, String surname, int hoursWorked, String programmingLenguage, String project) {
+    public Programmer(String nif, String name, String surname, int hoursWorked, String[] programmingLanguages, String project) {
         super(nif, name, surname, hoursWorked);
-        this.programmingLenguage = programmingLenguage;
+        this.programmingLanguages = programmingLanguages;
         this.project = project;
     }
 
     @Override
     public void showInfo() {
-        System.out.println("NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Lenguaje de programación: " + programmingLenguage + ". | Proyecto: " + project);
+        System.out.println("PROGRAMADOR || NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Lenguaje de programación: " + Arrays.toString(programmingLanguages)+ ". | Proyecto: " + project);
     }
 
-    public boolean knowLenguage(String programmingLenguage){
-
+    // método independiente para que dado un lenguaje d eprogramacion devuelva true o false si lo conoce
+    public boolean knowLanguage(String language) {
+        for (var programmingLanguage : programmingLanguages){
+            if (programmingLanguage.equals(language)) {
+                return true;
+            }
+        }
+        return false;
     }
 
-    public String getProgrammingLenguage() {
-        return programmingLenguage;
+
+    public String[] getProgrammingLanguages() {
+        return programmingLanguages;
     }
 
-    public void setProgrammingLenguage(String programmingLenguage) {
-        this.programmingLenguage = programmingLenguage;
+    public void setProgrammingLanguages(String[] programmingLanguages) {
+        this.programmingLanguages = programmingLanguages;
     }
 
     public String getProject() {
@@ -44,18 +52,18 @@ public class Programmer extends Employee {
         if (o == null || getClass() != o.getClass()) return false;
         if (!super.equals(o)) return false;
         Programmer that = (Programmer) o;
-        return Objects.equals(programmingLenguage, that.programmingLenguage) && Objects.equals(project, that.project);
+        return Objects.deepEquals(programmingLanguages, that.programmingLanguages) && Objects.equals(project, that.project);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), programmingLenguage, project);
+        return Objects.hash(super.hashCode(), Arrays.hashCode(programmingLanguages), project);
     }
 
     @Override
     public String toString() {
         return "Programmer{" +
-                "programmingLenguage='" + programmingLenguage + '\'' +
+                "programmingLanguages=" + Arrays.toString(programmingLanguages) +
                 ", project='" + project + '\'' +
                 ", nif='" + nif + '\'' +
                 ", name='" + name + '\'' +

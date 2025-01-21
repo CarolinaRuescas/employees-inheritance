@@ -13,10 +13,16 @@ public class ProjectManager extends Employee{
 
     @Override
     public void showInfo() {
-        System.out.println("NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Proyecto: " );
-            for (var project : projects){
-                showInfo();
+        System.out.println(" PROJECTMANAGER || NIF: " + nif + " | Nombre: " + name + ". | Apellido: " + surname + ". | Horas trabajadas: " + hoursWorked + ". | Proyecto: " + Arrays.toString(projects) );
+    }
+
+    public boolean hasProject (String project) {
+        for (var p : projects){
+            if (p.equals(project)) {
+                return true;
             }
+        }
+        return false;
     }
 
     public String[] getProjects() {
